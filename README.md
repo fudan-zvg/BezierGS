@@ -13,6 +13,16 @@
   <img src="assets/pipeline.png"/>
 </div><br/>
 
+## 🎞️ Demo
+
+**BézierGS.mp4**
+
+<video src="assets/BézierGS.mp4" controls="controls"></video>
+
+**pedestrian.mp4**
+
+<video src="assets/pedestrian.mp4" controls="controls"></video>
+
 ## 📜 BibTeX
 
 ``` bibtex
