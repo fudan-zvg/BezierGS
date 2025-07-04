@@ -17,7 +17,7 @@
 
 **BézierGS.mp4**
 
-<video src="assets/BézierGS.mp4" controls="controls"></video>
+[![BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting, BézierGS.mp4 - YouTube](https://res.cloudinary.com/marcomontalbano/image/upload/v1751600146/video_to_markdown/images/youtube--lSMn9V2rBLc-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=lSMn9V2rBLc "BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting, BézierGS.mp4 - YouTube")
 
 **pedestrian.mp4**
 
