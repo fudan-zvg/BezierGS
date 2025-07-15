@@ -4,7 +4,7 @@
 
 > [**BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting**](http://arxiv.org/abs/2506.22099)  
 > [Zipei Ma](https://xiao10ma.github.io/)<sup>⚖</sup>, [Junzhe Jiang](https://selfspin.github.io/)<sup>⚖</sup>, [Yurui Chen](https://github.com/fumore), [Li Zhang](https://lzrobots.github.io)<sup>✉</sup>  
-> **Shanghai Innovation Institute, School of Data Science, Fudan University**<br>
+> **Shanghai Innovation Institute; School of Data Science, Fudan University**<br>
 > **ICCV 2025**
 
 **Official implementation of "BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting".** 
