@@ -1,0 +1,72 @@
+exhaust_test: false
+
+
+# ModelParams
+scene_type: "nuPlan"
+resolution_scales: [1, 2, 4, 8, 16]
+cam_num: 8
+camera_list: [0, 1, 2, 3, 4, 5, 6, 7]
+eval: true
+num_pts: 600000
+t_init: 0.1
+time_duration: [0, 1]
+separate_scaling_t: 0.2 # scaling t
+
+start_time: 0
+end_time: 65
+
+
+order: 3 # new, 3 for cubic bezier
+bbox_frame_interval: 6 # 3 frames for bbox
+
+load_sky_mask: true
+load_dynamic_mask: true
+load_bbox_mask: true
+
+# PipelineParams
+
+
+# OptimizationParams
+iterations: 30000
+
+opacity_lr: 0.005
+
+densify_until_iter: 15000
+densify_grad_threshold: 0.00017
+sh_increase_interval: 2000
+
+
+prune_interval: 200
+
+render_type: bezier
+
+
+static_thresh: 1.0
+
+
+
+thresh_opa_prune: 0.005
+opa_init: 0.01
+
+lambda_dssim: 0.2
+lambda_sky_opa: 0.05
+lambda_inv_depth: 0.0
+lambda_lidar: 0.1
+lidar_decay: 1.0
+lambda_velocity: 1e-1
+lambda_dynamic_render: 5e-1
+lambda_icc: 1e-2
+
+# Color & Pose Correction (https://github.com/zju3dv/street_gaussians)
+# Color
+use_color_correction: false
+color_mode: "sensor" # If set to 'image', learn separate embedding for each image. If set to 'sensor', learn a single embedding for all images captured by one camera senosor. 
+use_mlp: false # If set to True, regress embedding from extrinsic by a mlp. Otherwise, define the embedding explicitly.
+use_sky: false # If set to True, using spparate embedding for background and sky
+color_correction_lr_init: 5e-4
+color_correction_lr_final: 5e-5
+# Pose
+use_pose_correction: false
+pose_mode: "frame" # If set to 'image', learn separate correction matrix for each image. If set to 'frame', learn a single correction matrix for all images corresponding to the same frame timestamp.
+pose_correction_lr_init: 5e-8
+pose_correction_lr_final: 1e-8

@@ -1,0 +1,2 @@
+# scene_id, seg_name, start_timestep, end_timestep, scene_type
+621,seg584622,30,180,dynamic

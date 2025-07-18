@@ -1,0 +1,109 @@
+test_iterations: [7000, 30000]
+save_iterations: [7000, 30000]
+checkpoint_iterations: [7000, 30000]
+exhaust_test: false
+test_interval: 5000
+render_static: false
+vis_step: 500
+checkpoint: null
+seed: 0
+camera_list: [0, 1, 2]
+
+# ModelParams
+sh_degree: 3
+fourier_dim: 5
+order: 3 # new, 3 for cubic bezier
+dynamic_mode: "Bezier" # Bezier, PVG(sin), DeformableGS(MLP)
+scene_type: "Waymo"
+source_path: ???
+seg_path: ???
+model_path: ???
+resolution_scales: [1]
+resolution: -1
+white_background: false
+data_device: "cuda"
+eval: false
+debug_cuda: false
+cam_num: 3  # for waymo
+t_init: 0.2
+cycle: 0.2
+velocity_decay: 1.0
+random_init_point: 200000
+fix_radius: 0.0
+time_duration: [-0.5, 0.5]
+num_pts: 100000
+frame_interval: 0.02
+testhold: 4  # NVS
+env_map_res: 1024
+separate_scaling_t: 0.1
+neg_fov: true
+undistort: true
+
+# PipelineParams
+convert_SHs_python: false
+compute_cov3D_python: false
+debug: false
+depth_blend_mode: 0
+env_optimize_until: 1000000000
+env_optimize_from: 0
+
+
+# OptimizationParams
+iterations: 30000
+position_lr_init: 1.6e-3
+position_lr_final: 1.6e-5
+traj_pos_lr_init: 1.6e-5
+traj_pos_lr_final: 1.6e-7
+position_lr_delay_mult: 0.01
+t_lr: 1e-5
+position_lr_max_steps: 30_000
+feature_lr: 0.0025
+opacity_lr: 0.05
+scaling_lr: 0.005
+velocity_lr: 0.001
+rotation_lr: 0.001
+envmap_lr: 0.01
+
+time_split_frac: 0.5
+percent_dense: 0.01
+thresh_opa_prune: 0.005
+opa_init: 0.01
+densification_interval: 100
+opacity_reset_interval: 3000
+densify_from_iter: 500
+densify_until_iter: 15_000
+densify_grad_threshold: 0.0002
+densify_grad_t_threshold: 0.002
+densify_until_num_points: 5000000
+sh_increase_interval: 1000
+scale_increase_interval: 5000
+prune_big_point: 1
+size_threshold: 20
+big_point_threshold: 0.1
+t_grad: true
+no_time_split: true
+contract: true
+multi_view_weight_from_iter: 40000
+
+lambda_dssim: 0.2
+lambda_sky_opa: 0.05
+lambda_inv_depth: 0.1
+lambda_lidar: 1.0
+lidar_decay: 1.0
+lambda_velocity: 1.0
+lambda_dynamic_render: 1e-1
+lambda_icc: 1e-2
+
+# Color & Pose Correction (https://github.com/zju3dv/street_gaussians)
+# Color
+use_color_correction: true
+color_mode: "sensor" # If set to 'image', learn separate embedding for each image. If set to 'sensor', learn a single embedding for all images captured by one camera senosor. 
+use_mlp: false # If set to True, regress embedding from extrinsic by a mlp. Otherwise, define the embedding explicitly.
+use_sky: false # If set to True, using spparate embedding for background and sky
+color_correction_lr_init: 5e-4
+color_correction_lr_final: 5e-5
+# Pose
+use_pose_correction: false
+pose_mode: "frame" # If set to 'image', learn separate correction matrix for each image. If set to 'frame', learn a single correction matrix for all images corresponding to the same frame timestamp.
+pose_correction_lr_init: 5e-8
+pose_correction_lr_final: 1e-8
