@@ -53,9 +53,7 @@ pip install ./nvdiffrast
 
 ### Data preparation
 
-Create a directory for the data: `mkdir dataset`.
-
-We provide some processed data [here](https://drive.google.com/drive/folders/1Uo-cNq6mSRCk1zbddKcORsFOoKQbp61k?usp=drive_link).
+Create a directory for the data: `mkdir dataset`. We provide some processed data [here](https://drive.google.com/drive/folders/1Uo-cNq6mSRCk1zbddKcORsFOoKQbp61k?usp=drive_link).
 
 <details> <summary>Prepare Waymo Open Dataset.</summary>
 
