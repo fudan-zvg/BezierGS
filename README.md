@@ -59,6 +59,8 @@ pip install ./nvdiffrast
 
 Create a directory for the data: `mkdir dataset`.
 
+We provide some processed data [here](https://drive.google.com/drive/folders/1Uo-cNq6mSRCk1zbddKcORsFOoKQbp61k?usp=drive_link).
+
 <details> <summary>Prepare Waymo Open Dataset.</summary>
 
 We provide the split file following [EmerNeRF](https://github.com/NVlabs/EmerNeRF). You can refer to this [document](https://github.com/NVlabs/EmerNeRF/blob/main/docs/NOTR.md) for download details.
