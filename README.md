@@ -9,10 +9,6 @@
 
 **Official implementation of "BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting".** 
 
-## 📝 TODO
-- [ ] Replace the intance segmentation with SAM2
-- [ ] Offer some preprocessed data
-
 ## 🛠️ Pipeline
 <div align="center">
   <img src="assets/pipeline.png"/>
