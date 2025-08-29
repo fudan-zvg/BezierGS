@@ -8,8 +8,7 @@ cam_num: 3
 eval: true
 num_pts: 600000
 t_init: 0.1
-time_duration: [0, 1]
-separate_scaling_t: 0.2 # scaling t
+
 
 start_time: 0
 end_time: 160
