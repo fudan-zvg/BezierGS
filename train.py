@@ -392,7 +392,7 @@ def complete_eval(tb_writer, iteration, test_iterations, scene : Scene, renderFu
                     dynamic_alpha = dynamic_render_pkg['alpha']
                     dynamic_render = dynamic_render * dynamic_alpha + (1 - dynamic_alpha) * torch.ones_like(dynamic_render)
 
-                    static_render_pkg = renderFunc(viewpoint, scene.gaussians, *renderArgs, other=other, pose_correction=pose_correction, mask=(scene.gaussians.get_group == 0))
+                    static_render_pkg = renderFunc(viewpoint, scene.gaussians, *renderArgs, env_map=env_map, color_correction=color_correction, other=other, pose_correction=pose_correction, mask=(scene.gaussians.get_group == 0))
                     static_alpha = static_render_pkg['alpha']
 
                     pts_depth_vis = visualize_depth(viewpoint.pts_depth)
