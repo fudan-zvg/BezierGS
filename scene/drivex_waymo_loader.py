@@ -240,7 +240,7 @@ def readDriveXWaymoInfo(args):
             images.append(image)
             image_paths.append(image_path)
 
-            sky_path = os.path.join(args.source_path, "sky_mask", f"{t:06d}_{cam_idx}.png")
+            sky_path = os.path.join(args.source_path, "sky_mask", f"{t:03d}_{cam_idx}.png")
             sky_data = Image.open(sky_path)
             sky_data = sky_data.resize((load_size[1], load_size[0]), Image.NEAREST)  # PIL resize: (W, H)
             sky_mask = np.array(sky_data) > 0
@@ -276,10 +276,17 @@ def readDriveXWaymoInfo(args):
                         bbox_dict[ideal_bbox].append(seg_mask)
 
                 cur_view_mask = np.zeros_like(seg_data)
+                # 首先处理已经匹配到分割掩码的bbox
                 for bbox_idx, seg_masks in bbox_dict.items():
                     # choose max IoU
                     cur_bbox_mask = max(seg_masks, key=lambda x: dynamic_bbox_list[bbox_idx][x].sum() / np.logical_or(dynamic_bbox_list[bbox_idx], x).sum())
                     cur_view_mask = np.logical_or(cur_view_mask, cur_bbox_mask)
+                
+                # 然后处理没有匹配到分割掩码的bbox，直接使用原始bbox
+                for bbox_idx in range(len(dynamic_bbox_list)):
+                    if bbox_idx not in bbox_dict:
+                        # 直接使用原始的dynamic_bbox作为掩码
+                        cur_view_mask = np.logical_or(cur_view_mask, dynamic_bbox_list[bbox_idx])
 
                 refined_bbox_path = os.path.join(args.source_path, "refined_bbox", f"{t:06d}_{cam_idx}.png")
                 Image.fromarray(cur_view_mask.astype(np.uint8) * 255).save(refined_bbox_path)
