@@ -13,3 +13,4 @@ opencv_python
 opencv_contrib_python
 tensorboardX
 matplotlib
+open3d
