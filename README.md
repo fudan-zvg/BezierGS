@@ -32,7 +32,7 @@ git clone https://github.com/fudan-zvg/BezierGS
 cd BezierGS
 
 # Make a conda environment.
-conda create --name bezier python=3.10
+conda create --name bezier python=3.10 -y
 conda activate bezier
 
 # Install requirements.
